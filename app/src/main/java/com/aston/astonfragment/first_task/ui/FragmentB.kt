@@ -5,12 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.fragment.app.FragmentManager
 import com.aston.astonfragment.R
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAMA1 = "param1"
-private const val ARG_PARAMA2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
@@ -19,15 +17,11 @@ private const val ARG_PARAMA2 = "param2"
  */
 class FragmentB : Fragment() {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAMA1)
-            param2 = it.getString(ARG_PARAMA2)
-        }
+
     }
 
     override fun onCreateView(
@@ -36,6 +30,25 @@ class FragmentB : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_b, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val buttonFragmentC: Button = view.findViewById(R.id.fragmentb_button_fragmentC)
+        val buttonFragmentA: Button = view.findViewById(R.id.fragmentb_button_to_fragment_a)
+
+        buttonFragmentC.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.container, FragmentC.newInstance("Hello Fragment C"), FRAGMENT_C)
+                .addToBackStack(FRAGMENT_C)
+                .commit()
+        }
+
+        buttonFragmentA.setOnClickListener {
+            parentFragmentManager.popBackStack(FRAGMENT_B, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+
+        }
     }
 
     companion object {
@@ -49,12 +62,8 @@ class FragmentB : Fragment() {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            FragmentB().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAMA1, param1)
-                    putString(ARG_PARAMA2, param2)
-                }
-            }
+        fun newInstance() = FragmentB()
+
+
     }
 }

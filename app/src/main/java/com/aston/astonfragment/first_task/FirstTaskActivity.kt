@@ -3,7 +3,7 @@ package com.aston.astonfragment.first_task
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.aston.astonfragment.R
-import com.aston.astonfragment.first_task.ui.FirstTaskFragment
+import com.aston.astonfragment.first_task.ui.FragmentA
 
 class FirstTaskActivity : AppCompatActivity() {
 
@@ -12,7 +12,7 @@ class FirstTaskActivity : AppCompatActivity() {
         setContentView(R.layout.activity_first_task)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, FirstTaskFragment.newInstance())
+                .replace(R.id.container, FragmentA.newInstance())
                 .commitNow()
         }
     }
