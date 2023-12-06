@@ -5,7 +5,7 @@
     android:id="@+id/first_task"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".first_task.ui.main.FirstTaskFragment">
+    tools:context=".first_task.ui.FirstTaskFragment">
 
     <TextView
         android:id="@+id/message"

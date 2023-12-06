@@ -1,4 +1,4 @@
-package com.aston.astonfragment.first_task.ui.main
+package com.aston.astonfragment.first_task.ui
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.aston.astonfragment.R
+import com.aston.astonfragment.first_task.model.FirstTaskFragmentViewModel
 
 class FirstTaskFragment : Fragment() {
 
@@ -14,11 +15,11 @@ class FirstTaskFragment : Fragment() {
         fun newInstance() = FirstTaskFragment()
     }
 
-    private lateinit var viewModel: FirstTaskViewModel
+    private lateinit var viewModel: FirstTaskFragmentViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(FirstTaskViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(FirstTaskFragmentViewModel::class.java)
         // TODO: Use the ViewModel
     }
 
@@ -27,6 +28,7 @@ class FirstTaskFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         return inflater.inflate(R.layout.first_task_fragment_main, container, false)
+        parentFragmentManager.beginTransaction().commit()
     }
 
 }

@@ -3,7 +3,7 @@ package com.aston.astonfragment.first_task
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.aston.astonfragment.R
-import com.aston.astonfragment.first_task.ui.main.FirstTaskFragment
+import com.aston.astonfragment.first_task.ui.FirstTaskFragment
 
 class FirstTaskActivity : AppCompatActivity() {
 
