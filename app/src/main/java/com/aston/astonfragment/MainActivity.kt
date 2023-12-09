@@ -7,6 +7,9 @@ import com.aston.astonfragment.databinding.ActivityMainBinding
 import com.aston.astonfragment.first_task.FirstTaskActivity
 import com.aston.astonfragment.second_task.SecondTaskActivity
 
+
+//const val SECONDTASK = "SECONDTASK"
+
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         }
         binding.mainActivityButtonSecondTask.setOnClickListener {
             val intent = Intent(this, SecondTaskActivity::class.java)
+            startActivity(intent)
         }
     }
 }
